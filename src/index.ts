@@ -1,1 +1,1 @@
-export { default as useLazyLoading } from "./hooks/useLazyLoading"
+export { default as useLazyLoading, Options } from "./hooks/useLazyLoading"

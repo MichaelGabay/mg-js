@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-type Options = {
+export type Options = {
     distance?: string
     targetPercent?: number
     initPage?: number
