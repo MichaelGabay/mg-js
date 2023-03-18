@@ -8,8 +8,8 @@
 
 - [React hooks](#react-hooks)
   - [useLazyLoading](#uselazyloading)
-
-
+- [React components](#react-components)
+  - [If](#if)
 # React hooks
 
 ## useLazyLoading
@@ -32,3 +32,15 @@ const [Intersector, data, setData] = useLazyLoading({ initPage: 0, distance: "50
   )
 ```
 
+
+# React components
+
+## If
+
+if component
+
+```js
+<If condition={true}>
+    <Menu>
+</If>
+```
