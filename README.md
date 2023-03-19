@@ -10,6 +10,8 @@
   - [useLazyLoading](#uselazyloading)
 - [React components](#react-components)
   - [If](#if)
+- [Utils](#utils)
+  - [timeAgo](#timeago)
 # React hooks
 
 ## useLazyLoading
@@ -43,4 +45,18 @@ if component
 <If condition={true}>
     <Menu>
 </If>
+```
+
+
+
+# Utils
+
+## timeAgo
+
+time ago fuction
+
+```js
+timeAgo(Date.now(), "En") //At this moment
+timeAgo(Date.now()-(1000*60), "En") //one minute ago
+timeAgo(Date.now()-(2000*60), "En") //Before two minutes
 ```
