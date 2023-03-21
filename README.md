@@ -43,8 +43,13 @@ Management of object state
 ```js
 const [object, setObject, reset] = useObjectState({name:"johndoe",isProfession:true})
       // object -> {name:"johndoe",isProfession:true}
-      setObject("isProfession",false) //{name: "johndoe",isProfession:false}
-      reset() //{name:'',isProfession:''}
+
+      setObject("isProfession",false) 
+      //{name: "johndoe",isProfession:false}
+
+      reset() 
+      //{name:'',isProfession:''}
+
       // alternative way for forms 👇
       const [object, setObject, reset] = useObjectState(["name","email","password"])
       // object -> {name:'',email:'',password:''}
