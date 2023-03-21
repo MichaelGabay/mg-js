@@ -55,7 +55,7 @@ const [object, setObject, reset] = useObjectState({name:"johndoe",isProfession:t
     useObjectState(["name","email","password"])
     // adds the string values to the object and updates them with empty string
 
-    useObjectState(["name","email","password",{isFrendly:true,gender:}])
+    useObjectState(["name","email","password",{isFrendly:true,gender:null}])
     // use the alternative way and and set specific values👇
 ```
 
