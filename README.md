@@ -8,11 +8,13 @@
 
 - [React hooks](#react-hooks)
   - [useLazyLoading](#uselazyloading)
+  - [useObjectState](#useobjectstate)
 - [React components](#react-components)
   - [If](#if)
 - [Utils](#utils)
   - [timeAgo](#timeago)
 # React hooks
+
 
 ## useLazyLoading
 
@@ -34,6 +36,21 @@ const [Intersector, data, setData] = useLazyLoading({ initPage: 0, distance: "50
   )
 ```
 
+## useObjectState
+
+Management of object state
+
+```js
+const [object, setObject, reset] = useObjectState({name:"johndoe",isProfession:true})
+      // object -> {name:"johndoe",isProfession:true}
+      setObject("isProfession",false) //{name: "johndoe",isProfession:false}
+      reset() //{name:'',isProfession:''}
+      // alternative way for forms 👇
+      const [object, setObject, reset] = useObjectState(["name","email","password"])
+      // object -> {name:'',email:'',password:''}
+```
+
+
 
 # React components
 
@@ -53,7 +70,7 @@ if component
 
 ## timeAgo
 
-time ago fuction
+Time ago function
 
 ```js
 timeAgo(Date.now(), "En") //At this moment
