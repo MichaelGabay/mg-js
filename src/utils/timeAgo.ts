@@ -14,19 +14,19 @@ const timeAgo = (time: Date | number | string, language: "En" | "Heb"): (string 
     if (language == "En") {
         time_formats = [
             [60, "seconds", 1], // 60
-            [120, "one minute ago", "in a minute"], // 60*2
+            [120, "One minute ago", "In a minute"], // 60*2
             [3600, "minutes", 60], // 60*60, 60
-            [7200, "one hour ago", "in a hour"], // 60*60*2
+            [7200, "one hour ago", "In a hour"], // 60*60*2
             [86400, "hours", 3600], // 60*60*24, 60*60
-            [172800, "yesterday", "tomorrow"], // 60*60*24*2
+            [172800, "Yesterday", "Tomorrow"], // 60*60*24*2
             [604800, "days", 86400], // 60*60*24*7, 60*60*24
-            [1209600, "week ago", "next week"], // 60*60*24*7*4*2
+            [1209600, "Week ago", "Next week"], // 60*60*24*7*4*2
             [2419200, "weeks", 604800], // 60*60*24*7*4, 60*60*24*7
-            [4838400, "month ago", "next month"], // 60*60*24*7*4*2
+            [4838400, "Month ago", "Next month"], // 60*60*24*7*4*2
             [29030400, "two month", 2419200], // 60*60*24*7*4*12, 60*60*24*7*4
-            [58060800, "year ago", "next year"], // 60*60*24*7*4*12*2
+            [58060800, "Year ago", "Next year"], // 60*60*24*7*4*12*2
             [2903040000, "years", 29030400], // 60*60*24*7*4*12*100, 60*60*24*7*4*12
-            [5806080000, "the last century", "next century"], // 60*60*24*7*4*12*100*2
+            [5806080000, "The last century", "Next century"], // 60*60*24*7*4*12*100*2
             [58060800000, "century", 2903040000], // 60*60*24*7*4*12*100*20, 60*60*24*7*4*12*100
         ];
     }

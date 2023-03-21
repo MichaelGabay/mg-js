@@ -83,6 +83,6 @@ Time ago function
 
 ```js
 timeAgo(Date.now(), "En") //At this moment
-timeAgo(Date.now()-(1000*60), "En") //one minute ago
+timeAgo(Date.now()-(1000*60), "En") //One minute ago
 timeAgo(Date.now()-(2000*60), "En") //Before two minutes
 ```
