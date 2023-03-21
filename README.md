@@ -42,17 +42,21 @@ Management of object state
 
 ```js
 const [object, setObject, reset] = useObjectState({name:"johndoe",isProfession:true})
-      // object -> {name:"johndoe",isProfession:true}
+    setObject("isProfession",false) 
+    // updating one value
+    
+    setObject({name:"johnny",isProfession:false}) 
+    // updating many values
 
-      setObject("isProfession",false) 
-      //{name: "johndoe",isProfession:false}
+    reset(null) 
+    // put null in all the values
 
-      reset() 
-      //{name:'',isProfession:''}
+    // alternative way for forms 👇
+    useObjectState(["name","email","password"])
+    // adds the string values to the object and updates them with empty string
 
-      // alternative way for forms 👇
-      const [object, setObject, reset] = useObjectState(["name","email","password"])
-      // object -> {name:'',email:'',password:''}
+    useObjectState(["name","email","password",{isFrendly:true,gender:}])
+    // use the alternative way and and set specific values👇
 ```
 
 
