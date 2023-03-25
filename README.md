@@ -11,6 +11,7 @@
   - [useObjectState](#useobjectstate)
 - [React components](#react-components)
   - [If](#if)
+  - [Media query](#media-query)
 - [Utils](#utils)
   - [timeAgo](#timeago)
 # React hooks
@@ -65,13 +66,20 @@ const [object, setObject, reset] = useObjectState({name:"johndoe",isProfession:t
 
 ## If
 
-if component
-
 ```js
 <If condition={true}>
     <Menu>
 </If>
 ```
+
+## Media query
+
+```js
+  <MediaQuery minWidth={500} maxWidth={800} >
+      <Menu>
+  </MediaQuery>
+```
+
 
 
 
