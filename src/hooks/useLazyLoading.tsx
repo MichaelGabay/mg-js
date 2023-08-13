@@ -29,9 +29,8 @@ const useLazyLoading = ({ distance, targetPercent, initPage = 0 }: Options, call
             }
         }, { root: null, rootMargin: distance, threshold: targetPercent });
         setTimeout(() => {
-            if (!stopObserving) observer.observe(ref.current);
+            if (!stopObserving) observer?.observe(ref.current);
         })
-
         return () => observer?.unobserve(ref.current);
     }, [data, stopObserving]);
 
