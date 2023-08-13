@@ -32,7 +32,7 @@ const useLazyLoading = ({ distance, targetPercent, initPage = 0 }: Options, call
             if (!stopObserving) observer.observe(ref.current);
         })
 
-        return () => observer.unobserve(ref.current);
+        return () => observer?.unobserve(ref.current);
     }, [data, stopObserving]);
 
     const addData = (newData: any[]) => {
