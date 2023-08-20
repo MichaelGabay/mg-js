@@ -6,11 +6,11 @@ export type Options = {
     initPage?: number
 }
 
-type returnValues = [
-    (propStyle?: React.CSSProperties) => JSX.Element,
-    any[],
-    (newData: any[]) => void
-]
+type returnValues = {
+    Intersector: (propStyle?: React.CSSProperties) => JSX.Element,
+    data: any[],
+    setData: (newData: any[]) => void
+}
 const useLazyLoading = ({ distance, targetPercent, initPage = 0 }: Options, callback: (page: number) => void): returnValues => {
     const [page, setPage] = useState(initPage);
     const [data, setData] = useState<any[]>([]);
@@ -31,7 +31,7 @@ const useLazyLoading = ({ distance, targetPercent, initPage = 0 }: Options, call
         setTimeout(() => {
             if (!stopObserving) observer?.observe(ref.current);
         })
-        return () => observer?.unobserve(ref.current);
+        return () => observer.disconnect();
     }, [data, stopObserving]);
 
     const addData = (newData: any[]) => {
@@ -41,7 +41,6 @@ const useLazyLoading = ({ distance, targetPercent, initPage = 0 }: Options, call
         else setStopObserving(true)
     }
 
-    return [Intersector, data, addData];;
+    return { Intersector, data, setData: addData };;
 }
 export default useLazyLoading;
-
