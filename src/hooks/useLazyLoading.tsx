@@ -7,11 +7,11 @@ export type Options = {
     uuidKeeper?: string
 }
 
-type returnValues = {
-    Intersector: (propStyle?: React.CSSProperties) => JSX.Element,
-    data: any[],
-    setData: (newData: any[]) => void
-}
+type returnValues = [
+    (propStyle?: React.CSSProperties) => JSX.Element,
+    any[],
+    (newData: any[]) => void
+]
 
 const storData: any = {}
 const storPage: any = {}
@@ -48,6 +48,6 @@ const useLazyLoading = ({ distance, targetPercent, initPage = 0, uuidKeeper }: O
         else setStopObserving(true)
     }
 
-    return { Intersector, data, setData: addData };;
+    return [Intersector, data, addData];
 }
 export default useLazyLoading;
