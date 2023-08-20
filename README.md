@@ -8,7 +8,6 @@
 
 - [React hooks](#react-hooks)
   - [useLazyLoading](#uselazyloading)
-    - [you can keep the previous data whene you switch the page](#you-can-keep-the-previous-data-whene-you-switch-the-page)
   - [useObjectState](#useobjectstate)
 - [React components](#react-components)
   - [If](#if)
@@ -38,9 +37,10 @@ const [Intersector, data, setData] = useLazyLoading({ initPage: 0, distance: "50
   )
 ```
 
-### you can keep the previous data whene you switch the page
+You can keep the previous data whene you switch the page
+```
 add uuidKeeper inside useLazyLoading({uuidKeeper:"unique key"})
-
+```
 
 ## useObjectState
 
