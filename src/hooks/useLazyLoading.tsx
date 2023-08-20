@@ -3,7 +3,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 export type Options = {
     distance?: string
     targetPercent?: number
-    initPage?: number
+    initPage?: number,
+    uuidKeeper?: string
 }
 
 type returnValues = {
@@ -11,9 +12,12 @@ type returnValues = {
     data: any[],
     setData: (newData: any[]) => void
 }
-const useLazyLoading = ({ distance, targetPercent, initPage = 0 }: Options, callback: (page: number) => void): returnValues => {
-    const [page, setPage] = useState(initPage);
-    const [data, setData] = useState<any[]>([]);
+
+const storData: any = {}
+const storPage: any = {}
+const useLazyLoading = ({ distance, targetPercent, initPage = 0, uuidKeeper }: Options, callback: (page: number) => void): returnValues => {
+    const [page, setPage] = useState(uuidKeeper && storPage[uuidKeeper] || initPage);
+    const [data, setData] = useState<any[]>(uuidKeeper && storData[uuidKeeper] || []);
     const [stopObserving, setStopObserving] = useState(false);
     const ref = useRef<any>(null)
 
@@ -24,6 +28,7 @@ const useLazyLoading = ({ distance, targetPercent, initPage = 0 }: Options, call
     useEffect(() => {
         let observer = new IntersectionObserver(([{ isIntersecting }]) => {
             if (isIntersecting) {
+                if (uuidKeeper) storPage[uuidKeeper] = page + 1;
                 setPage(page + 1)
                 callback(page)
             }
@@ -36,7 +41,9 @@ const useLazyLoading = ({ distance, targetPercent, initPage = 0 }: Options, call
 
     const addData = (newData: any[]) => {
         if (Array.isArray(newData) && newData.length) {
-            setData([...data, ...newData]);
+            const newArray = [...data, ...newData]
+            if (uuidKeeper) storData[uuidKeeper] = newArray
+            setData(newArray);
         }
         else setStopObserving(true)
     }
