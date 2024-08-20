@@ -17,13 +17,14 @@
 # React hooks
 
 
-## useLazyLoading
+## useLazyScrolling
 
 Lazy loading images
 
 ```js
-const [Intersector, data, setData] = useLazyLoading({ initPage: 0, distance: "50px", targetPercent: 0.5 }, (page) => {
-    // do your api request using page parameter and update the data state 
+const [Intersector, data, setData] = useLazyLoading({ initPage: 0, distance: "50px"}, (page) => {
+    // do your api request using page parameter and update your state
+    // note: set state only that way setState(pre=>[...pre,...newData])
   })
   return (
     <div>
@@ -35,11 +36,6 @@ const [Intersector, data, setData] = useLazyLoading({ initPage: 0, distance: "50
       <Intersector />
     </div>
   )
-```
-
-You can keep the previous data whene you switch the page
-```
-add uuidKeeper inside useLazyLoading({uuidKeeper:"unique key"})
 ```
 
 ## useObjectState
