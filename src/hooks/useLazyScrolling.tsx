@@ -6,7 +6,7 @@ export type Options = {
 }
 
 type returnValues = { Intersector: () => JSX.Element }
-const useLazyScrolling = ({ distance = "400px", initPage = 0 }: Options = {}, callback: (page: number) => void): returnValues => {
+const useLazyScrolling = ({ distance = "0px", initPage = 0 }: Options = {}, callback: (page: number) => void): returnValues => {
     const ref = useRef<any>(null)
     const refPage = useRef(initPage)
 

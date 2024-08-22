@@ -7,7 +7,7 @@
 
 
 - [React hooks](#react-hooks)
-  - [useLazyLoading](#uselazyloading)
+  - [useLazyScrolling](#useLazyScrolling)
   - [useObjectState](#useobjectstate)
 - [React components](#react-components)
   - [If](#if)
@@ -22,7 +22,7 @@
 Lazy loading images
 
 ```js
-const [Intersector, data, setData] = useLazyLoading({ initPage: 0, distance: "50px"}, (page) => {
+const [Intersector] = useLazyLoading({ initPage: 0, distance: "400px"}, (page) => {
     // do your api request using page parameter and update your state
     // note: set state only that way setState(pre=>[...pre,...newData])
   })
@@ -30,7 +30,7 @@ const [Intersector, data, setData] = useLazyLoading({ initPage: 0, distance: "50
     <div>
       {/* rendering the data */}
       {data.map(item => {
-        return <img src={item.link} />
+        return <img src={item.imageLink} />
       })}
       {/* put the intersector at the end */}
       <Intersector />
